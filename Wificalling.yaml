@@ -72,8 +72,20 @@ payload:
   - DOMAIN-SUFFIX,prod.onsite.me
 
   # ==========================================
-  # 6. VoIP 美区虚拟通讯工具
+  # 6. VoIP 美区虚拟通讯工具 (含 Google Voice 核心)
   # ==========================================
+  # Google Voice 通信、调度与 WebRTC 信令
+  - DOMAIN-SUFFIX,voice.google.com
+  - DOMAIN-SUFFIX,telephony.goog
+  - DOMAIN,voice.telephony.goog
+  - DOMAIN,notifications.google.com
+  # Google WebRTC / STUN / TURN 穿透媒体服务器
+  - DOMAIN,stun.l.google.com
+  - DOMAIN,stun1.l.google.com
+  - DOMAIN,stun2.l.google.com
+  - DOMAIN,stun3.l.google.com
+  - DOMAIN,stun4.l.google.com
+  # 其他常见虚拟号
   - DOMAIN-SUFFIX,tktn.be
   - DOMAIN-SUFFIX,talkatone.com
   - DOMAIN-SUFFIX,textnow.com
@@ -101,7 +113,7 @@ payload:
   - DOMAIN-SUFFIX,scamalytics.com
 
   # ==========================================
-  # 9. 运营商硬编码本地 IP 网段
+  # 9. 运营商与 Google 媒体硬编码 IP 网段
   # ==========================================
   # AT&T 专属网段
   - IP-CIDR,12.0.0.0/8,no-resolve
@@ -112,4 +124,4 @@ payload:
   # T-Mobile 专属网段
   - IP-CIDR,208.54.0.0/16,no-resolve
   - IP-CIDR,66.94.0.0/19,no-resolve
-  - IP-CIDR,206.29.177.36/32,no-resolve
+  - IP-CIDR,206.29.177.
