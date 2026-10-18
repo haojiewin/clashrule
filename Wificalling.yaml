@@ -1,25 +1,30 @@
 payload:
   # ==========================================
+  # 0. 底层 IPSec 端口强切 (Wi-Fi Calling 命脉)
+  # ==========================================
+  - DST-PORT,500
+  - DST-PORT,4500
+
+  # ==========================================
   # 1. APPLE 核心服务与美区 Wi-Fi Calling 通话底层
   # ==========================================
-  # Wi-Fi Calling 与 运营商套餐权限验证核心 (遗漏会导致通话无法激活)
   - DOMAIN,vowifi.apple.com
   - DOMAIN,entitlement.apple.com
   - DOMAIN,ess.apple.com
   - DOMAIN,gs-loc.apple.com
-  # 3GPP 蜂窝网络核心标准网关
   - DOMAIN-SUFFIX,3gppnetwork.org
 
   # ==========================================
-  # 2. AT&T / Red Pocket 专项强化 (含激活、Web端及App组件)
+  # 2. AT&T / Red Pocket 专项强化 (含核心 ePDG、激活及网关)
   # ==========================================
+  - DOMAIN,epdg.epc.mnc410.mcc310.pub.3gppnetwork.org
+  - DOMAIN,epdg.epc.att.net
   - DOMAIN-SUFFIX,att.com
   - DOMAIN-SUFFIX,att.net
   - DOMAIN-SUFFIX,mobile.att.net
   - DOMAIN-SUFFIX,att-idns.net
   - DOMAIN-SUFFIX,attccc.com
   - DOMAIN,0.ecom.attccc.com
-  - DOMAIN,epdg.epc.att.net
   - DOMAIN,attdashboard.wireless.att.com
   - DOMAIN,idp.wireless.att.com
   - DOMAIN,odc.wireless.att.com
@@ -27,7 +32,7 @@ payload:
   - DOMAIN,okta.attexperience.edu
   - DOMAIN-SUFFIX,redpocket.com
   - DOMAIN-SUFFIX,fpconfig.net
-  # 安卓端 App 激活与日志分析组件
+  # 安卓端 App 激活与组件
   - DOMAIN-SUFFIX,posthog.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,app-analytics-services.com
@@ -38,6 +43,8 @@ payload:
   # ==========================================
   # 3. T-Mobile / Tello / Google Fi 专项
   # ==========================================
+  - DOMAIN,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+  - DOMAIN,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
   - DOMAIN-SUFFIX,t-mobile.com
   - DOMAIN-SUFFIX,t-mo.co
   - DOMAIN-SUFFIX,tmomail.net
@@ -45,21 +52,18 @@ payload:
   - DOMAIN-SUFFIX,tello.com
   - DOMAIN,blog.tello.com
   - DOMAIN,fraud-api.tello.com
-  # T-Mobile 专属 Wi-Fi Calling 核心网关
-  - DOMAIN,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
-  - DOMAIN,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
 
   # ==========================================
   # 4. Verizon 体系 (含 Ultra / Red Pocket CDMA 线路)
   # ==========================================
+  - DOMAIN,epdg.epc.mnc480.mcc311.pub.3gppnetwork.org
+  - DOMAIN-SUFFIX,vzwwo.com
   - DOMAIN-SUFFIX,verizon.com
   - DOMAIN-SUFFIX,verizonwireless.com
   - DOMAIN-SUFFIX,vzw.com
-  # Verizon 专属 Wi-Fi Calling 核心网关
-  - DOMAIN,epdg.epc.mnc480.mcc311.pub.3gppnetwork.org
 
   # ==========================================
-  # 5. 全球 eSIM 远程下发与激活基础设施 (Idemia / G+D / Thales)
+  # 5. 全球 eSIM 远程下发与激活基础设施
   # ==========================================
   - DOMAIN-SUFFIX,idemia.io
   - DOMAIN,rsp-4002.idemia.io
@@ -88,7 +92,7 @@ payload:
   - DOMAIN,fp-afd.azureedge.us
 
   # ==========================================
-  # 8. 美国纯净网络环境环境检测 (欺诈分/IP强校验)
+  # 8. 美国网络环境检测
   # ==========================================
   - DOMAIN-SUFFIX,ip-api.com
   - DOMAIN-SUFFIX,whoer.net
@@ -97,7 +101,7 @@ payload:
   - DOMAIN-SUFFIX,scamalytics.com
 
   # ==========================================
-  # 9. 运营商硬编码本地 IP 网段 (无视 DNS 强切美区)
+  # 9. 运营商硬编码本地 IP 网段
   # ==========================================
   # AT&T 专属网段
   - IP-CIDR,12.0.0.0/8,no-resolve
@@ -107,6 +111,5 @@ payload:
   - IP-CIDR,107.122.31.0/24,no-resolve
   # T-Mobile 专属网段
   - IP-CIDR,208.54.0.0/16,no-resolve
-  # T-Mobile 移动网关
   - IP-CIDR,66.94.0.0/19,no-resolve
   - IP-CIDR,206.29.177.36/32,no-resolve
