@@ -241,16 +241,17 @@ function main(config) {
     {
       ...groupBaseOption,
       "name": "节点选择",
-      "type": "select",
+      "type": "url-test",
       "include-all": true,
-      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
+      "filter": "^(?!.*(官网|套餐|流量|异常|Expire|Traffic|剩余)).*$",
+      "tolerance": 100,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg"
     },
     {
       ...groupBaseOption,
       "name": "谷歌服务",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/google.svg"
     },
@@ -258,7 +259,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "YouTube",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/youtube.svg"
     },
@@ -266,7 +267,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "Netflix",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/netflix.svg"
     },
@@ -274,7 +275,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "电报消息",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/telegram.svg"
     },
@@ -283,7 +284,7 @@ function main(config) {
       "name": "AI",
       "type": "select",
       "include-all": true,
-      "proxies": ["节点选择"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/chatgpt.svg"
     },
     {
@@ -291,14 +292,14 @@ function main(config) {
       "name": "TikTok",
       "type": "select",
       "include-all": true,
-      "proxies": ["节点选择"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/tiktok.svg"
     },
     {
       ...groupBaseOption,
       "name": "微软服务",
       "type": "select",
-      "proxies": ["全局直连","节点选择"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/microsoft.svg"
     },
@@ -306,7 +307,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "苹果服务",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/apple.svg"
     },
@@ -314,16 +315,66 @@ function main(config) {
       ...groupBaseOption,
       "name": "动画疯",
       "type": "select",
-      "proxies": ["节点选择"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "filter": "(?i)台|tw|TW",
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/Bahamut.svg"
+    },    
+    {
+      ...groupBaseOption,
+      "name": "🇭🇰 香港节点",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "(?i)香港|港岛|\\bHK\\b|Hong[ -]?Kong",
+      "exclude-filter": "(?i)官网|套餐|流量|异常|剩余|到期",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300
+    },
+    {
+      ...groupBaseOption,
+      "name": "🇹🇼 台湾节点",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "(?i)台湾|台灣|台北|新北|\\bTW\\b|Taiwan|Taipei",
+      "exclude-filter": "(?i)官网|套餐|流量|异常|剩余|到期",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300
+    },
+    {
+      ...groupBaseOption,
+      "name": "🇸🇬 新加坡节点",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "(?i)新加坡|狮城|\\bSG\\b|Singapore",
+      "exclude-filter": "(?i)官网|套餐|流量|异常|剩余|到期",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300
+    },
+    {
+      ...groupBaseOption,
+      "name": "🇯🇵 日本节点",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "(?i)日本|东京|大阪|\\bJP\\b|Japan|Tokyo|Osaka",
+      "exclude-filter": "(?i)官网|套餐|流量|异常|剩余|到期",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300
+    },
+    {
+      ...groupBaseOption,
+      "name": "🇺🇸 美国节点",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "(?i)美国|美國|洛杉矶|洛杉磯|圣何塞|\\bUS\\b|United States|America|Los Angeles",
+      "exclude-filter": "(?i)官网|套餐|流量|异常|剩余|到期",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300
     },
     {
       ...groupBaseOption,
       "name": "哔哩哔哩港澳台",
       "type": "select",
-      "proxies": ["全局直连","节点选择"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/bilibili.svg"
@@ -332,7 +383,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "Spotify",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择","🇭🇰 香港节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🇺🇸 美国节点","🇯🇵 日本节点","全局直连"],
       "include-all": true,
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/spotify.svg"
     },
